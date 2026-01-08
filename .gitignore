@@ -1,0 +1,53 @@
+# --- Section Python (Data Engineering & Backend) ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnements virtuels (Indispensable pour ne pas versionner les libs)
+venv/
+env/
+.venv/
+
+# Variables d'environnement & Secrets (CRITIQUE pour la sécurité)
+.env
+.env.local
+
+# Jupyter Notebooks (souvent source de conflits, nettoyer les outputs avant commit si possible)
+.ipynb_checkpoints
+
+# Données (Ne jamais versionner les gros datasets, sauf petits échantillons)
+data/
+faiss_index/
+*.csv
+*.json
+*.parquet
+# On garde un dossier pour les exemples si besoin
+!data/sample/
+# On versionne les données de test
+!tests/*.csv
+
+# Logs
+*.log
+
+# --- Section Frontend (React/TypeScript/Vanilla Extract) ---
+# Dépendances Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build de production
+dist/
+build/
+
+# Fichiers système & IDE (Pollution visuelle)
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Documentation générée
+site/

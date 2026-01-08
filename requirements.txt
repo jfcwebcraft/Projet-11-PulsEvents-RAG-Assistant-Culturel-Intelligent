@@ -1,0 +1,15 @@
+langchain==0.3.7
+langchain-community==0.3.7
+langchain-mistralai>=0.2.0
+mistralai>=1.0.0
+faiss-cpu
+pandas
+streamlit
+python-dotenv
+requests
+pytest
+docling
+langchain-text-splitters>=0.3.0
+numpy
+PyYAML
+SQLAlchemy
