@@ -1,0 +1,11 @@
+question,expected_answer_keywords,category,difficulty
+"Quels concerts de jazz sont disponibles ?","jazz,concert,musique",genre_search,easy
+"Donne-moi les événements de janvier 2026","janvier,2026",date_search,easy
+"Y a-t-il des pièces de théâtre à Paris ?","théâtre,Paris",location_genre_search,medium
+"Quels spectacles ont lieu au Théâtre du Rond-Point ?","Rond-Point,Femmes savantes",venue_search,medium
+"Recommande-moi une sortie culturelle ce week-end","week-end,événement",vague_query,hard
+"Invente-moi un festival de musique","Je ne trouve pas,pas dans ma base",hallucination_test,critical
+"Y a-t-il des événements à Marseille ?","Je ne trouve pas,hors périmètre",out_of_scope,critical
+"Quelles expositions sont prévues ?","exposition,art",genre_search,medium
+"Donne-moi les spectacles de mars 2026","mars,2026",date_search,easy
+"Je veux sortir","Quel type d'ambiance,clarification",vague_query,hard
