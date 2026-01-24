@@ -10,4 +10,4 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
 
 if not MISTRAL_API_KEY:
-    print("WARNING: MISTRAL_API_KEY not found in environment variables.")
+    print("ATTENTION : La clé API MISTRAL_API_KEY est introuvable dans les variables d'environnement.")

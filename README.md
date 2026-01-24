@@ -11,7 +11,8 @@ Le pipeline de données suit une architecture modulaire :
     *   Enrichissement sémantique des données.
     *   Encodage via **Mistral AI Embeddings**.
     *   Indexation vectorielle avec **Facebook AI Similarity Search (FAISS)**.
-3.  **Application** (`src/app.py`) : Interface **Streamlit** intégrant le modèle **Mistral-Large** pour générer des recommandations personnalisées basées sur le contexte vectoriel.
+3.  **Moteur RAG** (`src/rag_engine.py`) : Encapsule la logique de récupération et de génération, incluant les garde-fous (hallucinations, hors-sujet).
+4.  **Application** (`src/app.py`) : Interface **Streamlit** intégrant le modèle **Mistral-Large** pour générer des recommandations personnalisées basées sur le contexte vectoriel.
 
 ## 🚀 Installation et Démarrage
 
@@ -36,7 +37,7 @@ python -m venv venv
 .\venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-### 2. Configuration des secrets
+### 2. Configuration des secrets (informations sensibles)
 Créez un fichier `.env` à la racine (ne pas commiter ce fichier) :
 ```env
 MISTRAL_API_KEY=votre_clé_api_ici
@@ -71,5 +72,18 @@ Démarrez l'interface Streamlit :
 
 *   `data/` : Données brutes et procesées (non versionnées).
 *   `faiss_index/` : Base de données vectorielle locale.
-*   `src/` : Code source des composants (Collecte, Indexation, App).
-*   `tests/` : Tests unitaires.
+*   `src/` : Code source des composants (Collecte, Indexation, Moteur RAG, App).
+*   `tests/` : Suite de tests automatisés.
+
+## ✅ Tests et Validation
+
+Le projet inclut une suite de tests complète :
+
+*   **Tests d'Infrastructure** (`tests/test_rag.py`) : Valident le chargement des données, les filtres géographiques et la configuration des embeddings.
+*   **Tests d'Évaluation QA** (`tests/test_evaluation.py`) : Valident la qualité des réponses (fidelité au contexte, refus des hallucinations, robustesse aux prompts adverses).
+    *   Basé sur le dataset : `tests/test_dataset_qa.csv`.
+
+Pour lancer les tests :
+```powershell
+.\venv\Scripts\python.exe -m pytest tests/
+```
