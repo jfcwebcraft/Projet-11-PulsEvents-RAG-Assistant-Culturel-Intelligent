@@ -39,9 +39,14 @@ def get_rag_chain():
         temperature=0.2
     )
 
+    # Calcul de la date actuelle pour le contexte temporel
+    from datetime import datetime
+    current_date = datetime.now().strftime("%A %d %B %Y")
+    
     # Prompt Système : Définition du rôle et des contraintes RAG
     system_prompt = (
         "Tu es **Puls-Assistant**, l'intelligence artificielle officielle de la plateforme culturelle Puls-Events.\n"
+        f"**DATE DU JOUR : {current_date}**\n" # <--- AJOUT CRITIQUE
         "\n"
         "**Ton Objectif :** Recommander des sorties culturelles aux utilisateurs en te basant **uniquement** sur les informations d'événements fournies dans le CONTEXTE.\n"
         "\n"
